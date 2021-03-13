@@ -24,3 +24,76 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+//Header
+#header{
+    --background: linear-gradient(60deg, rgb(149,156,198), rgb(190,193,237));
+}
+
+#title{
+    color: white;
+    text-align: center;
+    margin-left: 41%;
+}
+
+//Login, registro y restablecer
+.initial{
+    --ion-background-color: linear-gradient(60deg, rgb(176,149,199), rgb(190,193,237));
+}
+
+.center{
+    border-radius: 25px;
+    background-color: rgba(255,255,255, 0.5);
+    width: 84%;
+    height: 36%;
+    margin-left: 7%;
+    margin-top: 50%;
+    padding: 5%;
+    padding-top: 10%;
+    overflow: scroll;
+}
+
+.input-initial{
+    width: 100%;
+}
+
+.labelsmall-initial{
+    font-size: 15px;
+    color: rgb(140,140,140);
+}
+
+.button-initial{
+    margin-top: 15%;
+    width: 45%;
+}
+
+/*#buttonleft-initial{
+    
+}*/
+
+#buttonright-initial{
+    margin-left: 7%;
+}
+
+.button-back{
+    margin-left: 7%;
+    margin-top: 7%;
+    width: 20%;
+    object-fit:cover;
+}
+
+//Footer
+.buttonfoot{
+    height: 100%; 
+    width: 100%; 
+    object-fit:cover;
+}
+
+.icons{
+    height: 100%; 
+    width: 100%; 
+    object-fit:cover;
+}
+
+#footer{
+    --background: #D8BDEF;
+}
