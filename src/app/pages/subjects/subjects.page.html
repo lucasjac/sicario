@@ -1,0 +1,86 @@
+<ion-content [fullscreen]="true">
+
+<!--VER/CREAR/EDITAR/ELIMINAR-->
+<div id="postit-edit" *ngIf="feedback.pageMode[0]">
+  <ion-img src="assets/icon/postit-white.png"></ion-img>
+  <div id="text-edit" style="overflow: scroll; height: 80%;">
+      <ion-item>
+        <ion-input [(ngModel)]="materia.nombre" placeholder="Nombre"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label style="opacity: 0.6;">Profesor:</ion-label>
+        <ion-select [(ngModel)]="materia.profesor" interface="popover" (click)="checkProfesores()">
+          <ion-select-option *ngFor="let profesor of profesores">{{profesor.nombre}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label style="opacity: 0.6;">Fecha de inicio:</ion-label>
+        <ion-datetime displayFormat="DD-MMMM-YYYY" [(ngModel)]="materia.fecha_ini"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label style="opacity: 0.6;">Fecha de fin:</ion-label>
+        <ion-datetime displayFormat="DD-MMMM-YYYY" [(ngModel)]="materia.fecha_fin"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label style="opacity: 0.6;">Día:</ion-label>
+        <ion-select [(ngModel)]="materia.dia" interface="popover">
+          <ion-select-option>Lunes</ion-select-option>
+          <ion-select-option>Martes</ion-select-option>
+          <ion-select-option>Miércoles</ion-select-option>
+          <ion-select-option>Jueves</ion-select-option>
+          <ion-select-option>Viernes</ion-select-option>
+          <ion-select-option>Sábado</ion-select-option>
+          <ion-select-option>Domingo</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label style="opacity: 0.6;">Hora:</ion-label>
+        <ion-datetime [(ngModel)]="materia.horario" displayFormat="HH"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label style="opacity: 0.6;">Cantidad de horas:</ion-label>
+        <ion-datetime [(ngModel)]="materia.cantidad" displayFormat="HH"></ion-datetime>
+      </ion-item>
+      <div id="buttons-edit">
+        <ion-img (click)="clickSave()" src="assets/icon/icon-save.png"></ion-img>
+        <ion-img (click)="clickDelete()" style="margin-left: 10px" src="assets/icon/icon-delete.png" *ngIf="materia.id"></ion-img>
+      </div>
+    </div>
+  </div>
+
+  <!--BUSCAR-->
+  <div class="center-search" *ngIf="feedback.pageMode[1]">
+    <ion-label>Buscar por:</ion-label>
+    <ion-input [(ngModel)]="filter" placeholder="Nombre" class="input-initial"></ion-input>
+    <ion-button (click)="getFilter()" class="button-initial">Buscar</ion-button>
+  </div>
+
+  <!---->
+  <div id="edit-form" (click)="listMode()" *ngIf="feedback.pageMode[0] || feedback.pageMode[1]"></div>
+  
+  <!--LISTA-->
+  <div class="main-list" *ngIf="feedback.emptyMode[0]">
+    <ion-list id="list">
+      <ion-item *ngFor="let materia of materias" id="item-list">
+        <ion-img (click)="viewMateria(materia)" id="postit-list" src="assets/icon/postit-white.png"></ion-img>
+        <div (click)="viewMateria(materia)" id="text-list">
+          <p>{{materia.nombre}}</p>
+          <p *ngIf="materia.fecha_ini != ''">Fecha de inicio: {{date.getDate(materia.fecha_ini)}}</p>
+          <p *ngIf="materia.fecha_fin != ''">Fecha de fin: {{date.getDate(materia.fecha_fin)}}</p>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <!--VACÍO O NO ENCONTRADO-->
+  <div (click)="clickEmpty(1)" id="empty-hand" *ngIf="cantidad == 0 && !feedback.emptyMode[2]">
+    <ion-img src="assets/icon/hand-new.png"></ion-img>
+    <ion-label>Haga click para agregar una nueva materia.</ion-label>
+  </div>
+
+  <div (click)="clickEmpty(2)" id="empty-hand" *ngIf="feedback.emptyMode[2]">
+    <ion-img src="assets/icon/not-found.png"></ion-img>
+    <ion-label>No se ha encontrado ningún registro. Haga click para mostrar la lista normal.</ion-label>
+  </div>
+
+</ion-content>

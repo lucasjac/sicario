@@ -1,0 +1,10 @@
+export const Semana =  [
+    ['', '01 HS.', '02 HS.', '03 HS.', '04 HS.', '05 HS.', '06 HS.', '07 HS.', '08 HS.', '09 HS.', '10 HS.', '11 HS.', '12 HS.', '13 HS.', '14 HS.', '15 HS.', '16 HS.', '17 HS.', '18 HS.', '19 HS.', '20 HS.', '21 HS.', '22 HS.', '23 HS.', '24 HS.'],
+    ['Lunes', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre'],
+    ['Martes', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre'],
+    ['Miércoles', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre'],
+    ['Jueves', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre'],
+    ['Viernes', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre'],
+    ['Sábado', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre'],
+    ['Domingo', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre', 'Libre']
+]

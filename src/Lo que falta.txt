@@ -1,0 +1,10 @@
+PROGRAMACION:
+- Problema de inicialización de array.
+- Arreglar interacción con teclado.
+
+VISTA Y CSS:
+- Cambiar colores de alertas.
+- Animacion y arreglo de los pines.
+- Arreglar footer.
+
+- Preparar vista de error.

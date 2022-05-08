@@ -1,5 +1,6 @@
 export interface Profesor {
+    id: string,
     nombre: string,
-    cargo: string,
-    contacto: string[]
+    numero: string,
+    correo: string
 }

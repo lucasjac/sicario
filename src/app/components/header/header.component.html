@@ -1,0 +1,71 @@
+<!--HEADER-->
+<ion-header style="position: absolute;" *ngIf="feedback.show">
+  <div id="header-top-father">
+    <div id="header-top">
+      <div>
+        <ion-img *ngIf="feedback.headerMode" (click)="buttonBack()" id="button-back" src="assets/icon/icon-back.png"></ion-img>
+        <ion-img *ngIf="!feedback.headerMode" (click)="buttonMenu()" id="button-menu" src="assets/icon/icon-menu.png"></ion-img>
+      </div>
+      <div style="justify-content: center; margin-top: -8px;">
+        <h1 id="text-header">{{feedback.title}}</h1>
+      </div>
+      <div style="justify-content: flex-end;">
+        <ion-img *ngIf="!feedback.headerMode && feedback.search" (click)="buttonSearch()" id="button-search" src="assets/icon/icon-search.png"></ion-img>
+        <ion-img *ngIf="!feedback.headerMode && feedback.plus" (click)="buttonPlus()" id="button-plus" src="assets/icon/icon-plus.png"></ion-img>
+      </div>
+    </div>
+    <div id="header-bottom"></div>
+  </div>
+  <div id="header-bottom-father"></div>
+</ion-header>
+<!--SIDE MENU-->
+<ion-menu side="start" menuId="first" contentId="main">
+  <ion-header>
+    <ion-toolbar id="toolbar-menu">
+      <ion-title>{{usuario?.nombre}}</ion-title>
+      <p>{{usuario?.email}}</p>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-menu-toggle>
+        <ion-item routerLink="/profile">
+          <ion-img class="menu-img" src="assets/icon/icon-user.png"></ion-img>
+          <ion-label class="label-menu">Configurar perfil</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+    <ion-list>
+      <ion-menu-toggle>
+        <ion-item routerLink="/profile">
+          <ion-img class="menu-img" src="assets/icon/icon-home.png"></ion-img>
+          <ion-label class="label-menu">Tareas</ion-label>
+        </ion-item>
+        <ion-item routerLink="/subjects">
+          <ion-img class="menu-img" src="assets/icon/icon-subjects.png"></ion-img>
+          <ion-label class="label-menu">Materias</ion-label>
+        </ion-item>
+        <ion-item routerLink="/teachers">
+          <ion-img class="menu-img" src="assets/icon/icon-teachers.png"></ion-img>
+          <ion-label class="label-menu">Profesores</ion-label>
+        </ion-item>
+        <ion-item routerLink="/learning">
+          <ion-img class="menu-img" src="assets/icon/icon-learning.png"></ion-img>
+          <ion-label class="label-menu">Aprendizaje</ion-label>
+        </ion-item>
+        <ion-item routerLink="/calendar">
+          <ion-img class="menu-img" src="assets/icon/icon-calendar.png"></ion-img>
+          <ion-label class="label-menu">Calendario</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+    <ion-list>
+      <ion-menu-toggle>
+        <ion-item (click)="logOut()">
+          <ion-img class="menu-img" src="assets/icon/icon-logout.png"></ion-img>
+          <ion-label class="label-menu">Cerrar sesión</ion-label>  
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+  </ion-content>
+</ion-menu>

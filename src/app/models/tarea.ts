@@ -1,9 +1,10 @@
 export interface Tarea {
+    id: string,
     descripcion: string,
     materia: string,
-    tipo: string,
+    estado: string,
     fecha_crea: string,
     fecha_ent: string,
-    puntaje: number,
-    punt_log: number
+    puntaje: string,
+    punt_log: string
 }

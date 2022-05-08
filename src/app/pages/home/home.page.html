@@ -1,0 +1,80 @@
+<ion-content [fullscreen]="true">
+
+  <!--VER/CREAR/EDITAR/ELIMINAR-->
+  <div id="postit-edit" *ngIf="feedback.pageMode[0]">
+    <ion-img src="assets/icon/postit-yellow.png"></ion-img>
+    <div id="text-edit">
+      <ion-item>
+        <ion-label style="opacity: 0.6;">Materia:</ion-label>
+        <ion-select [(ngModel)]="tarea.materia" interface="popover" (click)="checkMaterias()">
+          <ion-select-option *ngFor="let materia of materias">{{materia.nombre}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-input [(ngModel)]="tarea.descripcion" placeholder="Descripción"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label style="opacity: 0.6;">Fecha de entrega:</ion-label>
+        <ion-datetime displayFormat="DD-MMMM-YYYY" [(ngModel)]="tarea.fecha_ent"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label style="opacity: 0.6;">Estado:</ion-label>
+        <ion-select [(ngModel)]="tarea.estado" interface="popover">
+          <ion-select-option>No entregado</ion-select-option>
+          <ion-select-option>Entregado</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-input [(ngModel)]="tarea.puntaje"  placeholder="Puntos" type="number"></ion-input>
+        <ion-input [(ngModel)]="tarea.punt_log"  placeholder="Puntos Logrados"  type="number"></ion-input>
+      </ion-item>
+      <div id="buttons-edit">
+        <ion-img (click)="clickSave()" src="assets/icon/icon-save.png"></ion-img>
+        <ion-img (click)="clickDelete()" style="margin-left: 10px" src="assets/icon/icon-delete.png" *ngIf="tarea.id"></ion-img>
+        <ion-label style="z-index: 3;" *ngIf="tarea.fecha_crea != ''">{{date.getDate(tarea.fecha_crea)}}</ion-label>
+      </div>
+    </div>
+  </div>
+
+  <!--BUSCAR-->
+  <div class="center-search" *ngIf="feedback.pageMode[1]">
+    <ion-label>Buscar por:</ion-label>
+    <ion-input [(ngModel)]="filter[0]" placeholder="Descripción" class="input-initial"></ion-input>
+    <ion-select [(ngModel)]="filter[1]" placeholder="Estado" interface="popover">
+      <ion-select-option>No entregado</ion-select-option>
+      <ion-select-option>Entregado</ion-select-option>
+    </ion-select>
+    <ion-button (click)="getFilter()" class="button-initial">Buscar</ion-button>
+  </div>
+
+  <!---->
+  <div id="edit-form" (click)="listMode()" *ngIf="feedback.pageMode[0] || feedback.pageMode[1]"></div>
+  
+  <!--LISTA-->
+  <div class="main-list" *ngIf="feedback.emptyMode[0]">
+    <ion-list id="list">
+      <ion-item *ngFor="let tarea of tareas" id="item-list">
+        <ion-img (click)="stateTarea(tarea)" id="pinred-list" src="assets/icon/pin-red.png"></ion-img>
+        <ion-img (click)="viewTarea(tarea)" id="postit-list" src="assets/icon/postit-yellow.png"></ion-img>
+        <div (click)="viewTarea(tarea)" id="text-list">
+          <p>{{tarea.materia}}</p>
+          <p>{{tarea.descripcion}}</p>
+          <p>Fecha de entrega: {{date.getDate(tarea.fecha_ent)}}</p>
+          <p *ngIf="tarea.puntaje != ''">Puntaje: {{tarea.puntaje}}</p>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <!--VACÍO O NO ENCONTRADO-->
+  <div (click)="clickEmpty(1)" id="empty-hand" *ngIf="cantidad == 0 && !feedback.emptyMode[2]">
+    <ion-img src="assets/icon/hand-new.png"></ion-img>
+    <ion-label>Haga click para agregar una nueva tarea.</ion-label>
+  </div>
+
+  <div (click)="clickEmpty(2)" id="empty-hand" *ngIf="feedback.emptyMode[2]">
+    <ion-img src="assets/icon/not-found.png"></ion-img>
+    <ion-label>No se ha encontrado ningún registro. Haga click para mostrar la lista normal.</ion-label>
+  </div>
+
+</ion-content>

@@ -1,0 +1,23 @@
+<ion-content class="initial">
+  <div id="edit-form" style="z-index: -1;"></div>
+  <div *ngIf="!playing" class="center" style="background: rgba(255,255,255,0.6);">
+    <ion-label style="color: rgb(60,60,60);">Seleccione una materia a practicar:</ion-label>
+    <ion-select style="background: rgba(255,255,255,0.2); border-radius: 15px;" [(ngModel)]="materia" interface="popover">
+        <ion-select-option>Todas</ion-select-option>
+        <ion-select-option *ngFor="let materia of materias">{{materia.nombre}}</ion-select-option>
+    </ion-select>
+    <ion-button style="width: 90%; --background: rgb(60,60,60);" (click)="startPlaying()">Empezar</ion-button>
+  </div>
+  <div *ngIf="playing">
+    <div id="quiz-text">
+      <p>{{concepto.termino}}</p>
+    </div>
+    <div class="quiz-options">
+      <ion-button class="{{classes[0]}}" disabled="{{answered}}" (click)="answerPicked(0)">{{answers[0]}}</ion-button>
+      <ion-button class="{{classes[1]}}" disabled="{{answered}}" (click)="answerPicked(1)">{{answers[1]}}</ion-button>
+      <ion-button class="{{classes[2]}}" disabled="{{answered}}" (click)="answerPicked(2)">{{answers[2]}}</ion-button>
+      <p *ngIf="answered">{{result}}</p>
+    </div>
+    <ion-button *ngIf="answered" id="button-next" (click)="chooseAnswers()">Siguiente</ion-button>
+  </div>
+</ion-content>

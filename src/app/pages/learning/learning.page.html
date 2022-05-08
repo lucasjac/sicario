@@ -1,0 +1,54 @@
+<ion-content [fullscreen]="true">
+
+    <!--VER/CREAR/EDITAR/ELIMINAR-->
+    <div id="postit-edit" *ngIf="feedback.pageMode[0]">
+        <ion-img src="assets/icon/postit-white.png"></ion-img>
+        <div id="text-edit" style="overflow: scroll; height: 80%;">
+            <ion-item *ngIf="mode == 0">
+                <ion-label style="opacity: 0.6;">Materia:</ion-label>
+                <ion-select [(ngModel)]="concepto.materia" interface="popover">
+                    <ion-select-option *ngFor="let materia of materias">{{materia.nombre}}</ion-select-option>
+                </ion-select>
+            </ion-item>
+            <ion-item *ngIf="mode == 0">
+                <ion-input [(ngModel)]="concepto.termino" placeholder="Término"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="mode == 0">
+                <ion-input [(ngModel)]="concepto.definicion" placeholder="Definición"></ion-input>
+            </ion-item>
+            <div *ngIf="mode == 1">
+              <ion-item *ngFor="let concepto of conceptos">
+                <p>{{concepto.termino}}: {{concepto.definicion}}</p>
+                <ion-button color="light" (click)="clickDelete(concepto)">Eliminar</ion-button>
+            </ion-item>
+            </div>
+            <div id="buttons-edit" *ngIf="mode == 0">
+                <ion-img (click)="clickSave()" src="assets/icon/icon-save.png"></ion-img>
+            </div>
+        </div>
+    </div>
+  
+    <!---->
+    <div id="edit-form" (click)="listMode()" *ngIf="feedback.pageMode[0]"></div>
+    
+    <!--LISTA-->
+    <div class="main-list" *ngIf="feedback.emptyMode[0]">
+      <ion-list id="list">
+        <ion-item *ngIf="cantidad != 0" id="item-list">
+          <ion-img (click)="viewConceptos()" id="postit-list" src="assets/icon/postit-purple.png"></ion-img>
+          <div (click)="viewConceptos()" id="text-list">
+            <p>Cantidad de definiciones: {{cantidad}}</p>
+          </div>
+          <ion-button style="width: 75%; --background: rgb(157,151,165); position: absolute; margin-left: 10%;" 
+            (click)="redirect()">Practicar</ion-button>
+        </ion-item>
+      </ion-list>
+    </div>
+  
+    <!--VACÍO O NO ENCONTRADO-->
+    <div (click)="clickEmpty()" id="empty-hand" *ngIf="cantidad == 0">
+      <ion-img src="assets/icon/hand-new.png"></ion-img>
+      <ion-label>Haga click para agregar una nuevo concepto.</ion-label>
+    </div>
+
+</ion-content>

@@ -24,76 +24,457 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
-//Header
-#header{
-    --background: linear-gradient(60deg, rgb(149,156,198), rgb(190,193,237));
+
+//TOAST-------------------------------------------------------------------------------------------------------
+.toast-success{
+    --background: rgb(187,181,195);
 }
 
-#title{
+.toast-alert{
+    --background: rgb(127,121,135);
     color: white;
-    text-align: center;
-    margin-left: 41%;
 }
 
-//Login, registro y restablecer
+//HEADER ------------------------------------------------------------------------------------------------------
+.header-md::after{
+    visibility: hidden;
+}
+
+#header-top-father{
+    width: 100%;
+    height: 60px;
+    background: rgba(157,151,165, 0.4);
+}
+
+#header-bottom-father{
+    width: 100%;
+    height: 20px;
+    border-radius: 0px 0px 50% 50%;
+    background: rgba(157,151,165, 0.4);
+}
+
+#header-top{
+    width: 100%;
+    height: 40px;
+    background: rgb(157,151,165);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#header-top div{
+    width: 33%;
+    display: flex;
+    align-items: center;
+}
+
+#header-bottom{
+    width: 100%;
+    height: 20px;
+    border-radius: 0px 0px 50% 50%;
+    background: rgb(157,151,165);
+}
+
+#button-back{
+    padding: 5px;
+    width: 40px;
+    object-fit:cover;
+}
+
+#button-menu{
+    padding: 5px;
+    width: 40px;
+    object-fit:cover;
+}
+
+#button-search{
+    padding: 5px;
+    width: 40px;
+    object-fit:cover;
+}
+
+#button-plus{
+    padding: 5px;
+    width: 40px;
+    object-fit:cover;
+}
+
+#button-forward{
+    padding: 5px;
+    width: 40px;
+    object-fit:cover;
+}
+
+#image-header{
+    width: 100px;
+    object-fit:cover;
+}
+
+#text-header{
+    width: 100%;
+    font-size: 100%;
+    text-align: center;
+    color: white;
+}
+
+//Menu
+#toolbar-menu{
+    --background:rgb(240, 240, 240);
+}
+
+#toolbar-menu ion-title{
+    padding-top: 20px;
+}
+
+#toolbar-menu p{
+    padding-left: 21px;
+    margin-top: 9px;
+}
+
+.menu-img{
+    width: 50px;
+}
+
+.label-menu{
+    padding-left: 10px;
+}
+
+//LOGIN, SIGN IN AND RESET ------------------------------------------------------------------------------------
 .initial{
     --ion-background-color: linear-gradient(60deg, rgb(176,149,199), rgb(190,193,237));
 }
 
 .center{
-    border-radius: 25px;
     background-color: rgba(255,255,255, 0.5);
     width: 84%;
-    height: 36%;
-    margin-left: 7%;
-    margin-top: 50%;
-    padding: 5%;
-    padding-top: 10%;
+    height: 45%;
+    border-radius: 25px;
+    padding: 15px;
+    padding-top: 50px;
+    position: relative;
+    top: 27%;
+    margin-left: auto;
+    margin-right: auto;
     overflow: scroll;
 }
 
+.center::-webkit-scrollbar {
+    display: none;
+}
+
+.logo-initial{
+    height: 15%;
+    top: 19%;
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    left: 0;
+}
+
 .input-initial{
+    background: rgba(255,255,255,0.3);
+    color: rgb(90, 90, 90);
+    border-radius: 15px;
     width: 100%;
+    margin-top: 10px;  
+}
+
+.labelinfo-initial{
+    color: rgba(90,90,90, 0.5);
+    font-size: 15px;
+    margin-top: 10px;
 }
 
 .labelsmall-initial{
+    color: rgb(176,149,199);
     font-size: 15px;
-    color: rgb(140,140,140);
+    font-style: italic;
+    position: absolute;
+    margin-top: 10px;
+    cursor: pointer;
 }
 
-.button-initial{
-    margin-top: 15%;
-    width: 45%;
+.center ion-button{
+    --background: rgb(157, 151, 165);
+    border: 1px solid rgb(213, 204, 223);
+    position: absolute;
+    width: 90%;
+    bottom: 5%;
 }
 
-/*#buttonleft-initial{
-    
-}*/
-
-#buttonright-initial{
-    margin-left: 7%;
+//APPLICATION----------------------------------------------------------------------------------------------
+//Empty
+#empty-hand{
+    width: 50%;
+    position: relative;
+    top: 25%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.button-back{
-    margin-left: 7%;
-    margin-top: 7%;
-    width: 20%;
-    object-fit:cover;
+#empty-hand ion-label{
+    text-align: center;
+    position: absolute;
+    margin-top: 10%;
+    color: rgb(230,230,230);
 }
 
-//Footer
-.buttonfoot{
-    height: 100%; 
-    width: 100%; 
-    object-fit:cover;
+//List
+.main-list{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: scroll;
 }
 
-.icons{
-    height: 100%; 
-    width: 100%; 
-    object-fit:cover;
+.main-list::-webkit-scrollbar {
+    display: none;
 }
 
+#list{
+    padding-top: 90px;
+}
+
+.item-inner{
+    border-style: none;
+}
+
+#item-list{
+    padding-bottom: 15px;
+}
+
+#pinred-list{
+    position: absolute;
+    top: 0;
+    height: 15%;
+    margin-left: 35%;
+    cursor: pointer;
+    z-index: 2;
+}
+
+#text-list{
+    font-size: 20px;
+    position: absolute;
+    width: 75%;
+    height: 80%;
+    overflow: scroll;
+    color: rgb(90, 90, 90);
+    margin-left: 10%;
+}
+
+#text-list::-webkit-scrollbar {
+    display: none;
+}
+
+//View, Edit, Create and Delete
+#edit-form{
+    background: rgba(0,0,0,0.7);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+
+.pinred-edit{
+    height: 10%;
+    position: absolute;
+    z-index: 3;
+    top: 20%;
+    right: 0;
+    left: 0;
+}
+
+#postit-edit{
+    left: 6%;
+    width: 88%;
+    height: 60%;
+    position: absolute;
+    top: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 2;
+    overflow: scroll;
+}
+
+#postit-edit::-webkit-scrollbar {
+    display: none;
+}
+
+#postit-edit ion-img{
+    position: absolute;
+    object-fit: cover;
+}
+
+#text-edit{
+    position: absolute;
+    padding: 15px;
+}
+
+#text-edit ion-item{
+    --background: transparent;
+}
+
+#buttons-edit{
+    width: 40%;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#buttons-edit ion-img{
+    width: 50px;
+    position: relative;
+    object-fit: cover;
+}
+
+#buttons-edit ion-label{
+    font-size: 12px;
+    position: absolute;
+    z-index: 3;
+    right: 60px;
+}
+
+//Search
+.center-search{
+    background-color: rgba(255,255,255, 0.5);
+    width: 84%;
+    height: 45%;
+    border-radius: 25px;
+    padding: 15px;
+    padding-top: 50px;
+    position: relative;
+    top: 27%;
+    left: 8%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: scroll;
+    position: absolute; 
+    z-index: 2;
+}
+
+//Quiz
+#quiz-text{
+    background-color: rgba(255,255,255, 0.6);
+    width: 90%;
+    height: 150px;
+    border-radius: 25px;
+    padding: 15px;
+    padding-top: 55px;
+    position: relative;
+    top: 90px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#quiz-text p{
+    text-align: center;
+}
+
+.quiz-options{
+    width: 90%;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.quiz-options ion-button{
+    width: 100%;
+    color:rgb(90, 90, 90);
+    --background: rgba(255,255,255,0.8);
+}
+
+.quiz-options p{
+    color: rgba(255,255,255,0.7);
+}
+
+#button-next{
+    width: 90%;
+    position: absolute;
+    --background: rgb(127,121,135);
+    bottom: 70px;
+    margin-left: 5%;
+}
+
+.button-answer{
+    --background: rgb(230, 230, 230);
+}
+
+.button-right{
+    --background: rgb(60, 255, 102);
+}
+
+.button-wrong{
+    --background: rgb(255, 60, 60);
+}
+
+//Calendar
+#calendar-grid{
+    width: 90%;
+    margin-top: 90px;
+    display: flex;
+    left: auto;
+    right: auto;
+    padding: 0;
+}
+
+#calendar-grid ion-col{
+    width: 100%;
+    overflow: scroll;
+    padding: 0;
+}
+
+#calendar-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.calendar-row {
+    background-color: #f7f7f7;
+    border: solid 1px #ddd;
+    padding: 10px;
+    height: 60px;
+    overflow: scroll;
+    padding: 0;
+}
+
+.calendar-row::-webkit-scrollbar {
+    display: none;
+}
+
+.calendar-div{
+    font-size: 12px;
+    color: rgb(90,90,90);
+    text-align: center;
+    margin: auto;
+}
+
+//Page not found
+#not-found{
+    font-size: 60px;
+    text-align: center;
+    color: rgb(147, 141, 155);
+    margin-top: 40%;
+    font-weight: 600;
+}
+
+//FOOTER---------------------------------------------------------------------------------------------------
 #footer{
-    --background: #D8BDEF;
+    background: rgb(230, 230, 230);
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon{
+    height: 100%;
+    width: 20%;
+    background: transparent;
+}
+
+.icon-selected{
+    height: 100%;
+    width: 20%;
+    background: rgb(60,60,60);
 }

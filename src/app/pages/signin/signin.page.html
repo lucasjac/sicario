@@ -1,0 +1,11 @@
+<ion-content class="initial">
+  <ion-img class="logo-initial" src="assets/icon/logo.png"></ion-img>
+  <div class="center" style="height: 55%">
+    <ion-input required type="nombre" placeholder="Nombre" [(ngModel)]="usuario.nombre" class="input-initial"></ion-input>
+    <ion-input required type="email" placeholder="Correo" [(ngModel)]="usuario.email" class="input-initial"></ion-input>
+    <ion-input required type="password" placeholder="Ingrese contraseña" [(ngModel)]="usuario.password" class="input-initial"></ion-input>
+    <ion-input required type="password" placeholder="Confirmar contraseña" [(ngModel)]="passwordConf" class="input-initial"></ion-input>
+    <ion-label class="labelsmall-initial" routerLink="/login">¿Ya tienes una cuenta? Haz click aquí.</ion-label><br>
+    <ion-button (click)="register()" class="button-initial">Registrar</ion-button>
+  </div>
+</ion-content>

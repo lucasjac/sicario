@@ -1,7 +1,6 @@
 export interface Concepto {
-    termino: string,
-    definicion: string,
+    id: string,
     materia: string,
-    aciertos: number,
-    fallos: number
+    termino: string,
+    definicion: string
 }

@@ -1,0 +1,9 @@
+<ion-content class="initial">
+  <ion-img class="logo-initial" src="assets/icon/logo.png"></ion-img>    
+  <div class="center">
+    <ion-label class="labelinfo-initial">Ingresa tu dirección de correo electrónico para recibir las instrucciones de recuperación de cuenta:</ion-label><br><br>
+    <ion-input [(ngModel)]="usuario.email" placeholder="Ingrese su correo electrónico." class="input-initial" style="margin-top: -10px;"></ion-input>
+    <ion-label class="labelsmall-initial" routerLink="/login">Volver a inicio de sesión.</ion-label><br>
+    <ion-button (click)="recover()" class="button-initial">Enviar</ion-button>
+  </div>
+</ion-content>

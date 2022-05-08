@@ -1,0 +1,39 @@
+<ion-content class="initial">
+  <ion-img class="logo-initial" src="assets/icon/user.png"></ion-img>
+  <div class="center" style="height: 60%; padding-top: 35px;">
+    <ion-item style="--background: transparent;">
+      <ion-label style="opacity: 0.6;">Nombre:</ion-label>
+      <ion-input placeholder="Ingresar" [(ngModel)]="usuario.nombre"></ion-input>
+    </ion-item>
+    <ion-item style="--background: transparent;">
+      <ion-label style="opacity: 0.6;">Teléfono:</ion-label>
+      <ion-input placeholder="Ingresar" [(ngModel)]="usuario.telefono"></ion-input>
+    </ion-item>
+      <ion-item style="--background: transparent;">
+        <ion-label style="opacity: 0.6;">País:</ion-label>
+        <ion-select placeholder="Seleccionar" [(ngModel)]="usuario.pais" interface="popover">
+          <ion-select-option *ngFor="let country of countries">{{country.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item style="--background: transparent;">
+        <ion-label style="opacity: 0.6;">Nivel:</ion-label>
+        <ion-select placeholder="Seleccionar" [(ngModel)]="usuario.nivel" interface="popover">
+          <ion-select-option>Escolar</ion-select-option>
+          <ion-select-option>Universitario</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item style="--background: transparent;">
+        <ion-label style="opacity: 0.6;">Periodo:</ion-label>
+        <ion-select placeholder="Seleccionar" [(ngModel)]="usuario.periodo" interface="popover">
+          <ion-select-option>Trimestral</ion-select-option>
+          <ion-select-option>Semestral</ion-select-option>
+          <ion-select-option>Anual</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-label class="labelinfo-initial">Correo: {{usuario.email}}</ion-label><br>
+      <ion-label class="labelinfo-initial">Se unió el {{usuario.fecha}}</ion-label><br>
+      <ion-button (click)="saveUser()" class="button-initial">Guardar cambios</ion-button>
+  </div>
+  <div class="edit-form"></div>
+</ion-content>
+

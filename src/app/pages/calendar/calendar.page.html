@@ -1,0 +1,51 @@
+<ion-content [fullscreen]="true">
+    <!--CALENDARIO-->
+    <ion-grid id="calendar-grid" *ngIf="cantidad != 0">
+        <ion-col>
+            <ion-row class="calendar-row" style="background-color: #dbdbdb; border: solid 1px rgb(253, 252, 252);" *ngFor="let dia of calendario[0]">
+                <div class="calendar-div">{{dia}}</div>
+            </ion-row>
+        </ion-col>
+        <ion-col>
+            <ion-row class="calendar-row" *ngFor="let dia of calendario[1]">
+                <div class="calendar-div">{{dia}}</div>
+            </ion-row>
+        </ion-col>
+        <ion-col>
+            <ion-row class="calendar-row" *ngFor="let dia of calendario[2]">
+                <div class="calendar-div">{{dia}}</div>
+            </ion-row>
+        </ion-col>
+        <ion-col>
+            <ion-row class="calendar-row" *ngFor="let dia of calendario[3]">
+                <div class="calendar-div">{{dia}}</div>
+            </ion-row>
+        </ion-col>
+        <ion-col>
+            <ion-row class="calendar-row" *ngFor="let dia of calendario[4]">
+                <div class="calendar-div">{{dia}}</div>
+            </ion-row>
+        </ion-col>
+        <ion-col>
+            <ion-row class="calendar-row" *ngFor="let dia of calendario[5]">
+                <div class="calendar-div">{{dia}}</div>
+            </ion-row>
+        </ion-col>
+        <ion-col>
+            <ion-row class="calendar-row" *ngFor="let dia of calendario[6]">
+                <div class="calendar-div">{{dia}}</div>
+            </ion-row>
+        </ion-col>
+        <ion-col>
+            <ion-row class="calendar-row" *ngFor="let dia of calendario[7]">
+                <div class="calendar-div">{{dia}}</div>
+            </ion-row>
+        </ion-col>
+    </ion-grid>
+
+    <!--VACÍO O NO ENCONTRADO-->
+    <div (click)="clickEmpty()" id="empty-hand" *ngIf="cantidad == 0">
+        <ion-img src="assets/icon/hand-new.png"></ion-img>
+        <ion-label>Ningún horario registrado. Haga click para agregar una nueva tarea.</ion-label>
+    </div>
+</ion-content>

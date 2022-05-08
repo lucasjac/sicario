@@ -1,0 +1,10 @@
+<ion-content class="initial">
+    <ion-img class="logo-initial" src="assets/icon/logo.png"></ion-img>
+    <div class="center">
+        <ion-input type="email" placeholder="Correo" [(ngModel)]="usuario.email" class="input-initial"></ion-input>
+        <ion-input type="password" placeholder="Contraseña" [(ngModel)]="usuario.password" class="input-initial"></ion-input>
+        <ion-label class="labelsmall-initial" routerLink="/reset" (click)="cleanUsuario()">¿Olvidaste tu contraseña?</ion-label><br>
+        <ion-button style="width: 40%;" (click)="login()">Ingresar</ion-button>
+        <ion-button style="width: 40%; right: 5%;" routerLink="/signin">Regístrate</ion-button>
+    </div>
+</ion-content>

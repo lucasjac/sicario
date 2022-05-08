@@ -1,0 +1,58 @@
+<ion-content [fullscreen]="true">
+
+    <!--VER/CREAR/EDITAR/ELIMINAR-->
+    <div id="postit-edit" *ngIf="feedback.pageMode[0]">
+        <ion-img src="assets/icon/postit-white.png"></ion-img>
+        <div id="text-edit">
+            <ion-item>
+              <ion-input [(ngModel)]="profesor.nombre" placeholder="Nombre"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input [(ngModel)]="profesor.numero" placeholder="Número de Teléfono"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input [(ngModel)]="profesor.correo" placeholder="Correo Electrónico"></ion-input>
+            </ion-item>
+            <div id="buttons-edit">
+              <ion-img (click)="clickSave()" src="assets/icon/icon-save.png"></ion-img>
+              <ion-img (click)="clickDelete()" style="margin-left: 10px" src="assets/icon/icon-delete.png" *ngIf="profesor.id"></ion-img>
+            </div>
+        </div>
+    </div>
+  
+    <!--BUSCAR-->
+    <div class="center-search" *ngIf="feedback.pageMode[1]">
+      <ion-label>Buscar por:</ion-label>
+      <ion-input [(ngModel)]="filter" placeholder="Nombre" class="input-initial"></ion-input>
+      <ion-button (click)="getFilter()" class="button-initial">Buscar</ion-button>
+    </div>
+  
+    <!---->
+    <div id="edit-form" (click)="listMode()" *ngIf="feedback.pageMode[0] || feedback.pageMode[1]"></div>
+    
+    <!--LISTA-->
+    <div class="main-list" *ngIf="feedback.emptyMode[0]">
+      <ion-list id="list">
+        <ion-item *ngFor="let profesor of profesores" id="item-list">
+          <ion-img (click)="viewProfesor(profesor)" id="postit-list" src="assets/icon/postit-white.png"></ion-img>
+          <div (click)="viewProfesor(profesor)" id="text-list">
+            <p>{{profesor.nombre}}</p>
+            <p *ngIf="profesor.numero != ''">Número de Teléfono: {{profesor.numero}}</p>
+            <p *ngIf="profesor.correo != ''">Correo Electrónico: {{profesor.correo}}</p>
+          </div>
+        </ion-item>
+      </ion-list>
+    </div>
+  
+    <!--VACÍO O NO ENCONTRADO-->
+    <div (click)="clickEmpty(1)" id="empty-hand" *ngIf="cantidad == 0 && !feedback.emptyMode[2]">
+      <ion-img src="assets/icon/hand-new.png"></ion-img>
+      <ion-label>Haga click para agregar una nueva materia.</ion-label>
+    </div>
+  
+    <div (click)="clickEmpty(2)" id="empty-hand" *ngIf="feedback.emptyMode[2]">
+      <ion-img src="assets/icon/not-found.png"></ion-img>
+      <ion-label>No se ha encontrado ningún registro. Haga click para mostrar la lista normal.</ion-label>
+    </div>
+
+</ion-content>
